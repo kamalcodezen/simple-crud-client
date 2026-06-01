@@ -1,6 +1,6 @@
 import { getUsersData } from "@/lib/data";
 import UsersTable from "../components/UsersTable";
-import { deleteUserData } from "@/lib/actions";
+import { addUserdata, deleteUserData } from "@/lib/actions";
 import AddUserModal from "../components/AddUserModal";
 
 const UsersPage = async () => {
@@ -10,7 +10,7 @@ const UsersPage = async () => {
     <div className="w-10/12 mx-auto space-y-4 py-5">
       <div className="flex justify-between items-center">
         <h2>{users.length}</h2>
-        <AddUserModal />
+        <AddUserModal actionAddUser={addUserdata} />
       </div>
       <UsersTable users={users} deleteUserAction={deleteUserData} />
     </div>

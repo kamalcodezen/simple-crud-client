@@ -1,8 +1,8 @@
 "use client";
-import { Envelope } from "@gravity-ui/icons";
+
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 
-const AddUserModal = () => {
+const AddUserModal = ({ actionAddUser }) => {
   return (
     <Modal>
       <Button variant="secondary">Add User</Button>
@@ -18,7 +18,7 @@ const AddUserModal = () => {
             </Modal.Header>
             <Modal.Body className="p-6">
               <Surface variant="default">
-                <form className="flex flex-col gap-4">
+                <form action={actionAddUser} className="flex flex-col gap-4">
                   <TextField
                     className="w-full"
                     name="name"
@@ -39,22 +39,25 @@ const AddUserModal = () => {
                   </TextField>
                   <TextField
                     className="w-full"
-                    name="phone"
+                    name="role"
                     type="text"
                     variant="secondary"
                   >
                     <Label>Role</Label>
                     <Input placeholder="Enter your role" />
                   </TextField>
+
+                  <Modal.Footer>
+                    <Button slot="close" variant="secondary">
+                      Cancel
+                    </Button>
+                    <Button type="submit" slot="close">
+                      Add
+                    </Button>
+                  </Modal.Footer>
                 </form>
               </Surface>
             </Modal.Body>
-            <Modal.Footer>
-              <Button slot="close" variant="secondary">
-                Cancel
-              </Button>
-              <Button slot="close">Add</Button>
-            </Modal.Footer>
           </Modal.Dialog>
         </Modal.Container>
       </Modal.Backdrop>
