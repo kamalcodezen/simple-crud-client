@@ -4,7 +4,6 @@ import { AlertDialog, Button, Table } from "@heroui/react";
 import Link from "next/link";
 
 const UsersTable = ({ users, deleteUserAction }) => {
-  
   const handleDelete = async (userId) => {
     await deleteUserAction(userId);
   };
@@ -31,7 +30,7 @@ const UsersTable = ({ users, deleteUserAction }) => {
                     <Button variant="primary">Details</Button>
                   </Link>
 
-                  <Link href={``}>
+                  <Link href={`/users/${user._id}/edit`}>
                     <Button variant="outline">Edit</Button>
                   </Link>
 
